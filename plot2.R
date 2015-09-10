@@ -18,26 +18,10 @@ globalReactivePower <- as.numeric(df2$Global_reactive_power)
 voltage <- as.numeric(df2$Voltage) 
 
 ##open the graphics device
-png("plot4.png", width=480, height=480) 
+png("plot2.png", width=480, height=480) 
 
-##setup the plot area - 2 rows X 2 columns
-par(mfrow = c(2, 2))  
- 
-## first plot is from 2nd part of project (upper left)
+## this plot is from 2nd part of project 
 plot(datetime, globalActivePower, type="l", xlab="", ylab="Global Active Power (kilowatts)")
 
-## this plot is new by voltage for the 4th part of project (upper right)
-plot(datetime, voltage, type="l", xlab="datetime", ylab="Voltage") 
-
-## this plot is from the 3rd part of the project (lower left)
-## adds 2 lines and a legend
-plot(datetime, subMetering1, type="l", ylab="Energy Submetering", xlab="") 
-lines(datetime, subMetering2, type="l", col="red") 
-lines(datetime, subMetering3, type="l", col="blue") 
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=, lwd=2, col=c("black", "red", "blue"), bty="o") 
-
-##this plot is new by GlocalReactivePower for the 4th part of the project (lower right)
-plot(datetime, globalReactivePower, type="l", xlab="datetime", ylab="Global_reactive_power") 
- 
 ##close the graphics device
 dev.off() 
